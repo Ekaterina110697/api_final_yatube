@@ -24,8 +24,11 @@ class Post(models.Model):
         Group, on_delete=models.CASCADE, related_name='posts', null=True
     )
 
+    class Meta:
+        ordering = ['pub_date']
+
     def __str__(self):
-        return self.text
+        return self.text[:20]
 
 
 class Follow(models.Model):

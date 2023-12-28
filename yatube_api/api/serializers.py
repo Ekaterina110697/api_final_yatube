@@ -21,8 +21,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    author = serializers.SlugRelatedField(read_only=True,
-                                          slug_field='username')
+    author = SlugRelatedField(read_only=True, slug_field='username')
 
     class Meta:
         fields = '__all__'
@@ -30,7 +29,7 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
 
 
-class FollowingSerializer(serializers.ModelSerializer):
+class FollowSerializer(serializers.ModelSerializer):
     user = SlugRelatedField(
         read_only=True,
         slug_field='username',
